@@ -27,24 +27,29 @@ public class PilhaJava {
         do {
             op = mostrarMenu();
             switch (op) {
-                case 1:
-                    System.out.println("Digite um numero inteiro");
+                case 1: System.out.println("Digite um numero inteiro");
                     element = scanner.nextInt();
-                    if (pilha.push(element)) {
-                        System.out.println("insercao realizada");
+                    if (pilha.push(element) == true) {
+                        System.out.println("\ninsercao realizada");
                     } else {
-                        System.out.println("Stack Overflow!");
+                        System.out.println("Stack Overflow! ******************");
                     }
                     //scanner.close(); //fechando o scanner para não ter erro de leitura.
                     break;
                 
-                case 2:
-                    pilha.pop();
-                    System.out.println("Elemento removido!");
+                case 2: if(pilha.isEmpty() == false)
+                        System.out.println("Elemento removido: " + pilha.pop());
+                        else
+                        System.out.println("Pilha vazia!");
+                
+                
+                    System.out.println("\nElemento removido!");
                     break;
                 
-                case 3:
-                    System.out.println("Topo = " + pilha.peek());
+                case 3: if(pilha.isEmpty() == false)
+                        System.out.println("Elemento do topo: " + pilha.peek());
+                        else
+                        System.out.println("Pilha vazia!");
                     break;
                     
                 case 4:

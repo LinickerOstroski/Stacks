@@ -5,7 +5,7 @@ public class Pilha<T> {
     private int topo;
     private T[] elementos;
 
-        public Pilha(int tamanho) { //Construtor
+    public Pilha(int tamanho) { //Construtor
         elementos = (T[]) new Object[tamanho];
         this.topo = -1;
 
@@ -33,7 +33,7 @@ public class Pilha<T> {
     }
 
     public boolean push(T novoDado) {
-        if (!this.isFull()) { // ! = se não acontecer
+        if (this.isFull() == false) { // ! = se não acontecer
             elementos[++topo] = novoDado;
             /*primeiro implementando no topo, depois o valor*/
             return true;
@@ -61,9 +61,9 @@ public class Pilha<T> {
     public String toString() {
         StringBuilder retorno = new StringBuilder();
 
-        for (int i = this.topo; i > 0; i--) 
-            retorno.append(elementos[i] + "\n");
-        
+        for (int i = this.topo; i >= 0; i--) {
+            retorno.append(elementos[i]).append("\n");
+        }
 
         retorno.append("--------");
         return retorno.toString();
